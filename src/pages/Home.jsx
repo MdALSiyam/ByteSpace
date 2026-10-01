@@ -1,5 +1,4 @@
-import React from 'react';
-import { Search, Star, Users, Award, BookOpen } from 'lucide-react';
+import { Search, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const courses = [

@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { 
   Search, CheckCircle2, PlayCircle, Paintbrush, Code, 
-  Monitor, Briefcase, TrendingUp, Camera, ShoppingBag
+  Monitor, Briefcase, TrendingUp, Camera, ShoppingBag,
+  Globe2, CircleDot, Zap, Aperture, Target
 } from 'lucide-react';
+import AuthSection from './pages/Auth';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('home');
@@ -88,90 +90,86 @@ export default function App() {
         {activeTab === 'home' && (
           <>
             {/* Hero Section */}
-            <section className="bg-[#0050ff] text-white relative pt-12 pb-28 px-6 overflow-hidden">
-              <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff15_1px,transparent_1px),linear-gradient(to_bottom,#ffffff15_1px,transparent_1px)] bg-[size:3.5rem_3.5rem]"></div>
+            <section className="relative min-h-[512px] overflow-hidden bg-[#0644e8] px-5 pt-14 text-white sm:px-8 md:pt-[72px]">
+              <div aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff17_1px,transparent_1px),linear-gradient(to_bottom,#ffffff17_1px,transparent_1px)] bg-[size:120px_120px]" />
+              <div aria-hidden="true" className="absolute -bottom-[340px] left-1/2 h-[560px] w-[920px] -translate-x-1/2 rounded-t-full bg-[#ccff00] md:w-[1000px]" />
+              <div aria-hidden="true" className="absolute left-[-38px] top-[190px] hidden h-28 w-44 rotate-[-18deg] rounded-[55%] border-[22px] border-[#ccff00] shadow-[0_0_18px_#ccff00] md:block" />
+              <div aria-hidden="true" className="absolute left-[15%] top-[330px] hidden h-14 w-24 rotate-[-22deg] rounded-full border-[13px] border-white shadow-[0_8px_16px_rgba(0,0,0,0.15)] md:block" />
+              <div aria-hidden="true" className="absolute right-[-45px] top-[180px] hidden h-36 w-48 rotate-[-24deg] rounded-[35%_65%_30%_70%] bg-[#ccff00] md:block" />
+              <div aria-hidden="true" className="absolute right-[16%] top-[310px] hidden h-0 w-0 rotate-[12deg] border-x-[30px] border-b-[54px] border-x-transparent border-b-white drop-shadow-lg md:block" />
+              <div aria-hidden="true" className="absolute right-[7%] top-[385px] hidden h-24 w-14 rotate-[18deg] rounded-[50%] border-[14px] border-white shadow-[0_8px_16px_rgba(0,0,0,0.15)] md:block" />
 
-              {/* Decorative Doodle Shapes */}
-              <div className="absolute top-12 left-8 w-24 h-24 bg-[#ccff00] rounded-full blur-2xl opacity-20 pointer-events-none"></div>
-              <div className="absolute top-1/3 left-6 text-[#ccff00] font-bold text-6xl select-none opacity-80 animate-pulse hidden md:block">⌇⌇⌇</div>
-              <div className="absolute top-1/4 right-8 text-[#ccff00] font-bold text-7xl select-none opacity-80 hidden md:block">▲</div>
-
-              <div className="max-w-5xl mx-auto relative z-10 text-center">
-                <h1 className="text-4xl md:text-6xl font-black tracking-tight mb-4 leading-tight">
-                  Get Access to Hundreds <br /> Courses Available
+              <div className="relative z-10 mx-auto max-w-5xl text-center">
+                <h1 className="mx-auto mb-4 max-w-[760px] text-[36px] font-black leading-[1.05] tracking-tight sm:text-[44px] md:text-[54px]">
+                  Get Access to Hundreds<br />Courses Available
                 </h1>
-                <p className="text-blue-100 text-xs md:text-sm max-w-xl mx-auto mb-8 font-normal opacity-90">
+                <p className="mx-auto mb-7 max-w-xl text-[11px] leading-relaxed text-blue-100 md:text-xs">
                   Unlock your creativity, gain valuable knowledge, and grow your business with our wide range of courses.
                 </p>
 
-                {/* Search Bar */}
-                <div className="flex bg-white rounded-full p-1.5 max-w-md mx-auto shadow-2xl mb-16">
+                <div className="mx-auto flex max-w-[460px] items-center rounded-full bg-white p-1.5 shadow-2xl">
                   <div className="flex items-center pl-4 text-slate-400">
-                    <Search className="w-4 h-4" />
+                    <Search className="h-4 w-4" />
                   </div>
-                  <input 
-                    type="text" 
-                    placeholder="Course, topic, creator" 
+                  <input
+                    type="text"
+                    placeholder="Course, topic, creator"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="w-full px-3 text-slate-800 text-xs outline-none bg-transparent placeholder:text-slate-400 font-medium"
+                    className="w-full min-w-0 bg-transparent px-3 text-xs font-medium text-slate-800 outline-none placeholder:text-slate-400"
                   />
-                  <button onClick={() => setActiveTab('courses')} className="bg-[#ccff00] text-black font-extrabold px-6 py-2.5 rounded-full text-xs hover:bg-lime-300 transition shrink-0">
+                  <button onClick={() => setActiveTab('courses')} className="shrink-0 rounded-full bg-[#ccff00] px-6 py-2.5 text-xs font-extrabold text-black transition hover:bg-lime-300">
                     Search
                   </button>
                 </div>
 
-                {/* Hero Center Illustration & Badges */}
-                <div className="relative max-w-2xl mx-auto mt-6">
-                  <div className="w-72 h-72 md:w-96 md:h-96 bg-[#ccff00] rounded-full mx-auto flex items-center justify-center overflow-hidden relative shadow-2xl">
-                    <img 
-                      src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600" 
-                      alt="Student" 
-                      className="w-full h-full object-cover object-top pt-4 scale-110"
-                    />
+                <div className="relative mx-auto mt-5 h-[250px] max-w-[900px] sm:h-[265px]">
+                  <img
+                    src="https://images.unsplash.com/photo-1513258496099-48168024aec0?w=870&auto=format&fit=crop"
+                    alt="Student learning with a laptop"
+                    className="absolute bottom-0 left-1/2 z-10 h-[270px] w-[330px] -translate-x-1/2 rounded-t-full object-cover object-top [mask-image:linear-gradient(to_bottom,black_76%,transparent_100%)] sm:w-[370px]"
+                  />
+
+                  <div className="absolute left-[4%] top-10 z-20 rounded-xl border border-slate-100 bg-white/95 px-4 py-2.5 text-left text-slate-800 shadow-xl backdrop-blur-md sm:left-[14%]">
+                    <p className="text-[10px] font-bold text-slate-900">UI/UX Design</p>
+                    <p className="mt-0.5 text-[8px] font-semibold text-slate-400">200 Courses · 1000+ Students</p>
                   </div>
 
-                  <div className="absolute top-12 left-0 md:-left-8 bg-white/95 backdrop-blur-md text-slate-800 px-4 py-2.5 rounded-2xl shadow-xl flex flex-col items-start border border-slate-100 text-left">
-                    <p className="text-xs font-bold text-slate-900">UI/UX Design</p>
-                    <p className="text-[9px] text-slate-400 font-semibold mt-0.5">200 Courses • 1000+ Students</p>
-                  </div>
-
-                  <div className="absolute top-12 right-0 md:-right-8 bg-white/95 backdrop-blur-md text-slate-800 p-3.5 rounded-2xl shadow-xl border border-slate-100 text-left min-w-[140px]">
-                    <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Learning Progress</p>
-                    <p className="text-xl font-black text-slate-900 mt-0.5">55%</p>
-                    <div className="w-full bg-slate-100 h-1.5 rounded-full mt-2 overflow-hidden">
-                      <div className="bg-[#ccff00] h-full w-[55%]"></div>
+                  <div className="absolute right-[2%] top-10 z-20 min-w-[130px] rounded-xl border border-slate-100 bg-white/95 p-3.5 text-left text-slate-800 shadow-xl backdrop-blur-md sm:right-[14%]">
+                    <p className="text-[8px] font-bold uppercase text-slate-400">Learning Progress</p>
+                    <p className="mt-0.5 text-2xl font-black text-slate-900">55%</p>
+                    <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-slate-100">
+                      <div className="h-full w-[55%] bg-[#ccff00]" />
                     </div>
                   </div>
 
-                  <div className="absolute bottom-6 left-2 md:left-4 bg-white/95 backdrop-blur-md text-slate-800 p-3 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-3">
-                    <div className="text-left pr-1">
-                      <p className="text-[11px] font-bold text-slate-800">Happy Students</p>
-                      <p className="text-[9px] text-slate-400 font-semibold">4.5 (240) ★</p>
+                  <div className="absolute bottom-5 left-[2%] z-20 flex items-center gap-3 rounded-xl border border-slate-100 bg-white/95 p-2.5 text-slate-800 shadow-xl backdrop-blur-md sm:left-[10%]">
+                    <div className="pr-1 text-left">
+                      <p className="text-[9px] font-bold">Happy Students</p>
+                      <p className="text-[8px] font-semibold text-slate-400">4.5 (240) <span className="text-amber-400">★</span></p>
                     </div>
                     <div className="flex -space-x-2">
-                      <img className="w-6 h-6 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100" alt="avatar" />
-                      <img className="w-6 h-6 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100" alt="avatar" />
-                      <img className="w-6 h-6 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100" alt="avatar" />
-                      <span className="w-6 h-6 rounded-full bg-[#ccff00] text-black text-[9px] font-extrabold flex items-center justify-center border-2 border-white">2k+</span>
+                      <img className="h-6 w-6 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100" alt="" />
+                      <img className="h-6 w-6 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100" alt="" />
+                      <img className="h-6 w-6 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100" alt="" />
+                      <span className="flex h-6 w-6 items-center justify-center rounded-full border-2 border-white bg-[#ccff00] text-[8px] font-extrabold text-black">2k+</span>
                     </div>
                   </div>
                 </div>
               </div>
             </section>
 
-            {/* Partner Logos */}
             <section className="border-b border-slate-100 py-6 bg-white">
-              <div className="max-w-6xl mx-auto px-6 flex flex-wrap justify-between items-center opacity-60 grayscale hover:grayscale-0 transition gap-6 text-xs font-bold">
-                <span className="flex items-center gap-1.5">🌐 Logoipsum</span>
-                <span className="flex items-center gap-1.5">⚙️ Logoipsum</span>
-                <span className="flex items-center gap-1.5">⚡ Logoipsum</span>
-                <span className="flex items-center gap-1.5">❖ Logoipsum</span>
-                <span className="flex items-center gap-1.5">🎯 Logoipsum</span>
+              <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-6 px-6 text-xs font-bold text-slate-500">
+                {[Globe2, CircleDot, Zap, Aperture, Target].map((BrandIcon, index) => (
+                  <span key={index} className="flex items-center gap-1.5 opacity-65 grayscale transition hover:opacity-100">
+                    <BrandIcon className="h-5 w-5" strokeWidth={2.5} />
+                    <span className="text-sm font-extrabold">Logoipsum</span>
+                  </span>
+                ))}
               </div>
             </section>
 
-            {/* Discover Section */}
             <section className="py-16 px-6 max-w-7xl mx-auto text-center">
               <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight mb-3">
                 Discover Your Passion, <br /> Build Your Skills
@@ -196,7 +194,6 @@ export default function App() {
                 ))}
               </div>
 
-              {/* Course Cards Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
                 {courses.map((course) => (
                   <div key={course.id} onClick={() => handleCourseSelect(course)} className="bg-white border border-slate-200/80 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition flex flex-col justify-between cursor-pointer group">
@@ -238,7 +235,6 @@ export default function App() {
               </div>
             </section>
 
-            {/* Learning Paths */}
             <section className="py-16 px-6 bg-slate-50/50 text-center border-t border-slate-100">
               <div className="max-w-5xl mx-auto">
                 <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight mb-3">
@@ -261,9 +257,8 @@ export default function App() {
               </div>
             </section>
 
-            {/* Professional Growth Section */}
-            <section className="py-20 px-6 max-w-6xl mx-auto">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <section className="w-full bg-[radial-gradient(ellipse_at_10%_35%,#eaff9b_0,transparent_30%),radial-gradient(ellipse_at_88%_60%,#e1e8ff_0,transparent_34%),#fafafa] px-6 py-20">
+              <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 md:grid-cols-2">
                 <div>
                   <h2 className="text-3xl font-black text-slate-900 leading-tight mb-4">
                     Your Path to Professional <br /> Growth Starts Here!
@@ -305,9 +300,8 @@ export default function App() {
               </div>
             </section>
 
-            {/* Create & Manage Section */}
-            <section className="py-20 px-6 max-w-6xl mx-auto bg-slate-50/50 rounded-3xl my-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <section className="w-full bg-[radial-gradient(ellipse_at_12%_55%,#eaff9b_0,transparent_29%),radial-gradient(ellipse_at_90%_20%,#e5eaff_0,transparent_35%),#fbfbfb] px-6 py-20">
+              <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 md:grid-cols-2">
                 <div className="order-2 md:order-1 relative">
                   <div className="bg-white p-6 rounded-3xl shadow-xl border border-slate-200/80">
                     <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500" alt="Creator" className="rounded-2xl w-full h-72 object-cover mb-4" />
@@ -345,9 +339,12 @@ export default function App() {
               </div>
             </section>
 
-            {/* Creator Banner */}
-            <section className="bg-[#0050ff] text-white py-16 px-6 text-center relative overflow-hidden my-12">
+            <section className="relative my-12 overflow-hidden bg-[#0644e8] px-6 py-16 text-center text-white">
               <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff15_1px,transparent_1px),linear-gradient(to_bottom,#ffffff15_1px,transparent_1px)] bg-[size:3.5rem_3.5rem]"></div>
+              <div aria-hidden="true" className="absolute -left-8 top-8 hidden h-20 w-32 -rotate-12 rounded-full border-[18px] border-[#ccff00] md:block" />
+              <div aria-hidden="true" className="absolute right-[12%] top-7 hidden h-0 w-0 -rotate-12 border-x-[27px] border-b-[48px] border-x-transparent border-b-[#ccff00] md:block" />
+              <div aria-hidden="true" className="absolute -right-8 bottom-2 hidden h-24 w-14 rotate-12 rounded-full border-[14px] border-[#ccff00] md:block" />
+              <div aria-hidden="true" className="absolute bottom-8 left-[13%] hidden h-12 w-20 rotate-12 rounded-full border-[12px] border-white md:block" />
               
               <div className="max-w-3xl mx-auto relative z-10">
                 <h2 className="text-3xl md:text-4xl font-black mb-4 tracking-tight">
@@ -363,9 +360,9 @@ export default function App() {
               </div>
             </section>
 
-            {/* Testimonials */}
-            <section className="py-20 px-6 max-w-6xl mx-auto">
-              <div className="text-left mb-12">
+            <section className="w-full bg-[radial-gradient(ellipse_at_82%_50%,#eaff9b_0,transparent_32%),radial-gradient(ellipse_at_10%_20%,#edf0ff_0,transparent_32%),#fbfbfb] px-6 py-20">
+              <div className="mx-auto max-w-6xl">
+              <div className="mb-12 text-left">
                 <h2 className="text-3xl font-black text-slate-900 tracking-tight">
                   Discover What Our <br /> Community Is Saying
                 </h2>
@@ -389,6 +386,7 @@ export default function App() {
                     </div>
                   </div>
                 ))}
+              </div>
               </div>
             </section>
           </>
@@ -470,32 +468,10 @@ export default function App() {
 
         {/* Auth Forms */}
         {(activeTab === 'login' || activeTab === 'signup') && (
-          <div className="bg-[#0050ff] min-h-[80vh] flex items-center justify-center p-6">
-            <div className="bg-white rounded-2xl p-8 max-w-sm w-full shadow-2xl">
-              <h2 className="text-2xl font-black mb-1 text-slate-900">{activeTab === 'login' ? 'Welcome Back' : 'Create Account'}</h2>
-              <p className="text-xs text-slate-400 mb-6">{activeTab === 'login' ? 'Sign in to continue learning' : 'Join thousands of learners on ByteSpace'}</p>
-              
-              <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
-                {activeTab === 'signup' && (
-                  <div>
-                    <label className="text-xs font-bold text-slate-700">Full Name</label>
-                    <input type="text" placeholder="John Doe" className="w-full border border-slate-200 px-3 py-2 rounded-xl text-xs mt-1 outline-none focus:border-[#0050ff]" />
-                  </div>
-                )}
-                <div>
-                  <label className="text-xs font-bold text-slate-700">Email Address</label>
-                  <input type="email" placeholder="user@example.com" className="w-full border border-slate-200 px-3 py-2 rounded-xl text-xs mt-1 outline-none focus:border-[#0050ff]" />
-                </div>
-                <div>
-                  <label className="text-xs font-bold text-slate-700">Password</label>
-                  <input type="password" placeholder="••••••••" className="w-full border border-slate-200 px-3 py-2 rounded-xl text-xs mt-1 outline-none focus:border-[#0050ff]" />
-                </div>
-                <button onClick={() => setActiveTab('home')} className="w-full bg-[#ccff00] text-black font-extrabold py-2.5 rounded-xl text-xs hover:bg-lime-300 transition mt-2">
-                  {activeTab === 'login' ? 'Sign In' : 'Create Account'}
-                </button>
-              </form>
-            </div>
-          </div>
+          <AuthSection
+            mode={activeTab === 'login' ? 'signin' : 'signup'}
+            onModeChange={(nextTab) => setActiveTab(nextTab)}
+          />
         )}
       </main>
 
